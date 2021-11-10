@@ -27,19 +27,19 @@ router.get('/users', getUsers);
 // router.post('/users', addUser);
 
 // //plan routes
-// router.get('/plans', getPlans);
+router.get('/plans', getPlans);
 // router.patch('/plans/:id', editPlan);
 // router.delete('/plans/:id', deletePlan);
 // router.post('/plans', addPlan);
 
 // //gym routes
-// router.get('/gyms', getGyms);
+router.get('/gyms', getGyms);
 // router.patch('/plans/:id', editGym);
 // router.delete('/plans/:id', deleteGym);
 // router.post('/plans', addGym);
 
 // //session routes
-// router.get('/sessions', getSessions);
+router.get('/sessions', getSessions);
 // router.patch('/sessions/:id', editSession);
 // router.delete('/sessions/:id', deleteSession);
 // router.post('/session', addSession);

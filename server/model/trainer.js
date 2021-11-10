@@ -8,6 +8,30 @@ async function getUsers() {
   };
 }
 
+async function getPlans() {
+  const { rows } = await db.query('SELECT * FROM plan;');
+  return {
+    code: 200,
+    data: rows,
+  };
+}
+
+async function getSessions() {
+  const { rows } = await db.query('SELECT * FROM sessions;');
+  return {
+    code: 200,
+    data: rows,
+  };
+}
+
+async function getGyms() {
+  const { rows } = await db.query('SELECT * FROM gym;');
+  return {
+    code: 200,
+    data: rows,
+  };
+}
+
 // async function deleteCar(id) {
 //   const { rowCount } = await db.query('delete from cars where id = $1;', [id]);
 //   console.log(rowCount);
@@ -98,4 +122,4 @@ async function getUsers() {
 //   }
 // }
 
-module.exports = { getUsers };
+module.exports = { getUsers, getSessions, getPlans, getGyms };
