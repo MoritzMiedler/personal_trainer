@@ -24,7 +24,7 @@ const router = express.Router();
 router.get('/users', getUsers);
 // router.patch('/users/:id', editUser);
 // router.delete('/users/:id', deleteUser);
-// router.post('/users', addUser);
+router.post('/users', addUser);
 
 // //plan routes
 router.get('/plans', getPlans);

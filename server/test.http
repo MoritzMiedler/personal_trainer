@@ -6,3 +6,13 @@ GET http://localhost:3000/gyms
 ###
 GET http://localhost:3000/sessions
 ###
+POST http://localhost:3000/users
+content-type: application/json
+
+{
+    "user_id":"5",
+    "user_name":"victor pawlek",
+    "user_birthday" : "2003-02-08",
+    "user_level":"4"
+}
+

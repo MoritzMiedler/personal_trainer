@@ -32,6 +32,12 @@ async function getGyms() {
   };
 }
 
+async function addUser(user_id, user_name, user_birthday, user_level) {
+  await db.query(
+    'insert into users(user_id, user_name, user_birthday, user_activitylevel) values ($1,$2,$3,$4);',
+    [user_id, user_name, user_birthday, user_level],
+  );
+}
 // async function deleteCar(id) {
 //   const { rowCount } = await db.query('delete from cars where id = $1;', [id]);
 //   console.log(rowCount);
@@ -122,4 +128,10 @@ async function getGyms() {
 //   }
 // }
 
-module.exports = { getUsers, getSessions, getPlans, getGyms };
+module.exports = {
+  getUsers,
+  getSessions,
+  getPlans,
+  getGyms,
+  addUser,
+};
