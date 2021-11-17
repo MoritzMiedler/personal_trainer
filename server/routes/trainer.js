@@ -26,19 +26,19 @@ router.patch('/users/:id', editUser);
 router.delete('/users/:id', deleteUser);
 router.post('/users', addUser);
 
-// //plan routes
+//plan routes
 router.get('/plans', getPlans);
-// router.patch('/plans/:id', editPlan);
-// router.delete('/plans/:id', deletePlan);
-// router.post('/plans', addPlan);
+router.patch('/plans/:id', editPlan);
+router.delete('/plans/:id', deletePlan);
+router.post('/plans', addPlan);
 
-// //gym routes
+//gym routes
 router.get('/gyms', getGyms);
 // router.patch('/plans/:id', editGym);
 // router.delete('/plans/:id', deleteGym);
 // router.post('/plans', addGym);
 
-// //session routes
+//session routes
 router.get('/sessions', getSessions);
 // router.patch('/sessions/:id', editSession);
 // router.delete('/sessions/:id', deleteSession);

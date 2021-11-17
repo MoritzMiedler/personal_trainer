@@ -20,8 +20,27 @@ content-type: application/json
 DELETE http://localhost:3000/users/8
 ###
 
-
 GET http://localhost:3000/plans
+###
+POST http://localhost:3000/plans
+content-type: application/json
+
+{
+    "plan_description":"ABC TEST TEST",
+    "plan_name":"TESTPLAN 8",
+    "plan_duration":"4",
+    "plan_type":"TYP 2",
+    "plan_price":"50"
+}
+###
+PATCH http://localhost:3000/plans/6
+content-type: application/json
+
+{
+    "plan_price":4000
+}
+###
+DELETE http://localhost:3000/plans/10
 ###
 GET http://localhost:3000/gyms
 ###
