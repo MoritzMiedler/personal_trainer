@@ -22,12 +22,16 @@ const getGyms = asyncHandler(async (req, res) => {
 });
 
 const addUser = asyncHandler(async (req, res) => {
-  await trainerModel.addUser(req.user_id, req.user_name, req.user_birthday, req.user_level);
+  await trainerModel.addUser(req.body.user_name, req.body.user_birthday, req.body.user_activitylevel);
 });
 
-// const deleteCar = asyncHandler(async (req, res) => {
-//   const { code, data } = await carModel.deleteCar(req.params.id);
-//   res.status(code).json(data);
-// });
+const editUser = asyncHandler(async (req, res) => {
+  await trainerModel.editUser(req.body, req.params.id);
+});
 
-module.exports = { getUsers, getPlans, getSessions, getGyms, addUser };
+const deleteUser = asyncHandler(async (req, res) => {
+  const { code, data } = await trainerModel.deleteUser(req.params.id);
+  res.status(code).json(data);
+});
+
+module.exports = { getUsers, getPlans, getSessions, getGyms, addUser, editUser, deleteUser };

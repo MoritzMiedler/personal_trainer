@@ -32,101 +32,57 @@ async function getGyms() {
   };
 }
 
-async function addUser(user_id, user_name, user_birthday, user_level) {
+async function addUser(user_name, user_birthday, user_activitylevel) {
+  await db.query('insert into users(user_name, user_birthday, user_activitylevel) values ($1,$2,$3);', [
+    user_name,
+    user_birthday,
+    user_activitylevel,
+  ]);
+}
+
+async function addPlan(plan_description, plan_name, plan_duration, plan_type, plan_price) {
   await db.query(
-    'insert into users(user_id, user_name, user_birthday, user_activitylevel) values ($1,$2,$3,$4);',
-    [user_id, user_name, user_birthday, user_level],
+    'insert into plan(plan_description, plan_name, plan_duration, plan_type, plan_price) values ($1,$2,$3,$4,$5);',
+    [plan_description, plan_name, plan_duration, plan_type, plan_price],
   );
 }
-// async function deleteCar(id) {
-//   const { rowCount } = await db.query('delete from cars where id = $1;', [id]);
-//   console.log(rowCount);
-//   if (rowCount === 1) {
-//     return {
-//       code: 200,
-//       data: 'Car deleted',
-//     };
-//   }
-//   return {
-//     code: 404,
-//     data: `Car with id ${id} wasnt found.`,
-//   };
+
+// async function addSession(user_name, user_birthday, user_activitylevel) {
+//   await db.query('insert into users(user_name, user_birthday, user_activitylevel) values ($1,$2,$3);', [
+//     user_name,
+//     user_birthday,
+//     user_activitylevel,
+//   ]);
+// }
+// async function addGym(user_name, user_birthday, user_activitylevel) {
+//   await db.query('insert into users(user_name, user_birthday, user_activitylevel) values ($1,$2,$3);', [
+//     user_name,
+//     user_birthday,
+//     user_activitylevel,
+//   ]);
 // }
 
-// async function getOwnerId(owner) {
-//   try {
-//     const { rows } = await db.query(
-//       'select id from owner where first_name = $1 and last_name = $2',
-//       [owner.firstName, owner.lastName],
-//     );
-//     return rows[0].id;
-//   } catch (err) {
-//     return null;
-//   }
-// }
+async function editUser(user_data, id) {
+  let upd = [];
+  for (key in user_data) upd.push(`${key} = '${user_data[key]}'`);
+  const cmd = 'UPDATE users SET ' + upd.join(', ') + ' WHERE user_id = $1';
+  await db.query(cmd, [id]);
+}
 
-// async function addCar(e) {
-//   try {
-//     const { rows } = await db.query('select max(id) as max from cars');
-//     const carId = rows[0].max + 1;
-
-//     const id = await getOwnerId(e.owner);
-
-//     if (id === null) {
-//       return {
-//         code: 404,
-//         data: 'Owner not found',
-//       };
-//     }
-
-//     await db.query(
-//       'insert into cars (id, title, image, status, price, miles, year_of_make, description, owner) values($1, $2, $3, $4, $5, $6, $7, $8, $9)',
-//       [carId, e.title, e.image, e.status, e.price, e.miles, e.yearOfMake, e.description, id],
-//     );
-
-//     return {
-//       code: 200,
-//       data: `Car added with id ${carId}`,
-//     };
-//   } catch (err) {
-//     return {
-//       code: 500,
-//       data: `Error while adding car. Error: ${err.message}`,
-//     };
-//   }
-// }
-
-// async function changeStatusCar(id, data) {
-//   try {
-//     const { rows } = await db.query('SELECT * FROM cars where id = $1', [id]);
-//     if (rows[0] === undefined) {
-//       return {
-//         code: 404,
-//         data: 'Car not found',
-//       };
-//     }
-
-//     const props = [];
-//     for (const key in data) {
-//       if (Object.prototype.hasOwnProperty.call(data, key)) {
-//         props.push(`${key}='${data[key]}'`);
-//       }
-//     }
-
-//     const cmd = `Update cars set ${props.join(',')} where id = $1`;
-//     await db.query(cmd, [id]);
-
-//     return {
-//       code: 200,
-//       data: 'Car updated',
-//     };
-//   } catch (err) {
-//     return {
-//       code: 500,
-//       data: `Error while editing car. Error: ${err.message}`,
-//     };
-//   }
-// }
+async function deleteUser(id) {
+  const { rowCount } = await db.query('delete from users where user_id = $1;', [id]);
+  console.log(rowCount);
+  if (rowCount === 1) {
+    return {
+      code: 200,
+      data: 'User deleted',
+    };
+  }
+  return {
+    code: 404,
+    data: `User with id ${id} wasnt found.`,
+  };
+}
 
 module.exports = {
   getUsers,
@@ -134,4 +90,7 @@ module.exports = {
   getPlans,
   getGyms,
   addUser,
+  editUser,
+  deleteUser,
+  addPlan,
 };
