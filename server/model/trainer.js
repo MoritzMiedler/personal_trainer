@@ -24,7 +24,10 @@ async function editUser(user_data, id) {
 }
 
 async function deleteUser(id) {
+  await db.query('delete from user_plan where user_id = $1;', [id]);
+  await db.query('delete from sessions where user_id = $1;', [id]);
   const { rowCount } = await db.query('delete from users where user_id = $1;', [id]);
+
   console.log(rowCount);
   if (rowCount === 1) {
     return {
@@ -61,6 +64,8 @@ async function editPlan(plan_data, id) {
 }
 
 async function deletePlan(id) {
+  await db.query('delete from sessions where plan_id = $1;', [id]);
+  await db.query('delete from user_plan where plan_id = $1;', [id]);
   const { rowCount } = await db.query('delete from plan where plan_id = $1;', [id]);
   console.log(rowCount);
   if (rowCount === 1) {
