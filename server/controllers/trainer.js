@@ -48,8 +48,22 @@ const getSessions = asyncHandler(async (req, res) => {
   res.status(code).json(data);
 });
 
-const getGyms = asyncHandler(async (req, res) => {
-  const { code, data } = await trainerModel.getGyms();
+const addSession = asyncHandler(async (req, res) => {
+  await trainerModel.addSession(
+    req.body.session_dauer,
+    req.body.session_datum,
+    req.body.user_id,
+    req.body.plan_id,
+    req.body.accepted,
+  );
+});
+
+const editSession = asyncHandler(async (req, res) => {
+  await trainerModel.editSession(req.body, req.params.id);
+});
+
+const deleteSession = asyncHandler(async (req, res) => {
+  const { code, data } = await trainerModel.deleteSession(req.params.id);
   res.status(code).json(data);
 });
 
@@ -57,11 +71,13 @@ module.exports = {
   getUsers,
   getPlans,
   getSessions,
-  getGyms,
   addUser,
   editUser,
   deleteUser,
   addPlan,
   editPlan,
   deletePlan,
+  addSession,
+  editSession,
+  deleteSession,
 };

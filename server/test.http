@@ -1,3 +1,4 @@
+//USER TEST-ROUTES
 GET http://localhost:3000/users
 ###
 POST http://localhost:3000/users
@@ -20,6 +21,7 @@ content-type: application/json
 DELETE http://localhost:3000/users/8
 ###
 
+//PLAN TEST-ROUTES
 GET http://localhost:3000/plans
 ###
 POST http://localhost:3000/plans
@@ -42,7 +44,27 @@ content-type: application/json
 ###
 DELETE http://localhost:3000/plans/10
 ###
-GET http://localhost:3000/gyms
-###
+
+//SESSION TEST-ROUTES
 GET http://localhost:3000/sessions
+###
+POST http://localhost:3000/sessions
+content-type: application/json
+
+{
+    "session_dauer":"1.5h",
+    "session_datum":"2021-12-12",
+    "user_id":"3",
+    "plan_id":"1",
+    "accepted":"true"
+}
+###
+PATCH http://localhost:3000/sessions/1
+content-type: application/json
+
+{
+    "accepted":"false"
+}
+###
+DELETE http://localhost:3000/sessions/13
 ###

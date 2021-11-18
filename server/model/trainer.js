@@ -46,22 +46,6 @@ async function getPlans() {
   };
 }
 
-async function getSessions() {
-  const { rows } = await db.query('SELECT * FROM sessions;');
-  return {
-    code: 200,
-    data: rows,
-  };
-}
-
-async function getGyms() {
-  const { rows } = await db.query('SELECT * FROM gym;');
-  return {
-    code: 200,
-    data: rows,
-  };
-}
-
 async function addPlan(plan_description, plan_name, plan_duration, plan_type, plan_price) {
   await db.query(
     'insert into plan(plan_description, plan_name, plan_duration, plan_type, plan_price) values ($1,$2,$3,$4,$5);',
@@ -91,30 +75,54 @@ async function deletePlan(id) {
   };
 }
 
-// async function addSession(user_name, user_birthday, user_activitylevel) {
-//   await db.query('insert into users(user_name, user_birthday, user_activitylevel) values ($1,$2,$3);', [
-//     user_name,
-//     user_birthday,
-//     user_activitylevel,
-//   ]);
-// }
-// async function addGym(user_name, user_birthday, user_activitylevel) {
-//   await db.query('insert into users(user_name, user_birthday, user_activitylevel) values ($1,$2,$3);', [
-//     user_name,
-//     user_birthday,
-//     user_activitylevel,
-//   ]);
-// }
+async function getSessions() {
+  const { rows } = await db.query('SELECT * FROM sessions;');
+  return {
+    code: 200,
+    data: rows,
+  };
+}
+
+async function addSession(session_dauer, session_datum, user_id, plan_id, accepted) {
+  await db.query(
+    'insert into sessions(session_dauer, session_datum, user_id, plan_id, accepted) values ($1,$2,$3,$4,$5);',
+    [session_dauer, session_datum, user_id, plan_id, accepted],
+  );
+}
+
+async function editSession(session_data, id) {
+  let upd = [];
+  for (key in session_data) upd.push(`${key} = '${session_data[key]}'`);
+  const cmd = 'UPDATE sessions SET ' + upd.join(', ') + ' WHERE session_id = $1';
+  await db.query(cmd, [id]);
+}
+
+async function deleteSession(id) {
+  const { rowCount } = await db.query('delete from sessions where session_id = $1;', [id]);
+  console.log(rowCount);
+  if (rowCount === 1) {
+    return {
+      code: 200,
+      data: 'Session deleted',
+    };
+  }
+  return {
+    code: 404,
+    data: `Session with id ${id} wasnt found.`,
+  };
+}
 
 module.exports = {
   getUsers,
   getSessions,
   getPlans,
-  getGyms,
   addUser,
   editUser,
   deleteUser,
   addPlan,
   editPlan,
   deletePlan,
+  addSession,
+  editSession,
+  deleteSession,
 };
