@@ -9,11 +9,10 @@ async function getUsers() {
 }
 
 async function addUser(user_name, user_birthday, user_activitylevel) {
-  await db.query('insert into users(user_name, user_birthday, user_activitylevel) values ($1,$2,$3);', [
-    user_name,
-    user_birthday,
-    user_activitylevel,
-  ]);
+  await db.query(
+    'insert into users(user_name, user_birthday, user_activitylevel) values ($1,$2,$3);',
+    [user_name, user_birthday, user_activitylevel],
+  );
 }
 
 async function editUser(user_data, id) {
