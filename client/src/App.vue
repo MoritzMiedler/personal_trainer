@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="black" dark>
+    <v-app-bar app color="transparent" dark>
       <div class="d-flex align-center">
         <v-img
           alt="Logo"

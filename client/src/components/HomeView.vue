@@ -1,9 +1,21 @@
 <template>
   <div>
-    <div class="parallax"></div>
+    <div
+      class="parallax container-fluid d-flex justify-content-center align-content-center flex-column align-items-center text-light"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
+      <h1 class="display-3 text-center font-weight-bold text-center amber--text darken-3">
+        LOREM IPSUM
+      </h1>
+      <p class="text-shadow"><i class="fas fa-chevron-down"></i></p>
+    </div>
     <section class="p-5 bg-light">
       <div class="container">
-        <h1 class="display-4 text-center font-weight-bold">Meine Pläne</h1>
+        <h1 class="display-3 text-center font-weight-bold">Meine Pläne</h1>
+        <div class="text-center">
+          <img src="/icons/trenner.png" height="75px" alt="..." />
+        </div>
         <h4 class="text-center">
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
           invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
