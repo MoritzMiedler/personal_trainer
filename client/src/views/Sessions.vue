@@ -1,5 +1,15 @@
 <template>
-  <div class="session">
-    <h1>This is the session page</h1>
-  </div>
+  <BookedSessions />
 </template>
+
+<script>
+import BookedSessions from '../components/BookedSessions.vue';
+
+export default {
+  name: 'Sessions',
+
+  components: {
+    BookedSessions,
+  },
+};
+</script>
