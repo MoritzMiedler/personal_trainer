@@ -5,18 +5,35 @@
       data-aos="fade-up"
       data-aos-duration="1000"
     >
-      <h1 class="display-3 text-center font-weight-bold text-center amber--text darken-3">
+      <h1
+        class="display-3 text-center font-weight-bold text-center amber--text darken-3"
+        data-aos="fade-down"
+        data-aos-duration="1000"
+      >
         LOREM IPSUM
       </h1>
-      <p class="text-shadow"><i class="fas fa-chevron-down"></i></p>
+      <h3
+        class="text-center font-weight-bold text-center white--text"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMED
+      </h3>
+      <v-icon large color="white">mdi-chevron-down</v-icon>
     </div>
     <section class="p-5 bg-light">
       <div class="container">
-        <h1 class="display-3 text-center font-weight-bold">Meine Pläne</h1>
+        <h1
+          class="display-3 text-center font-weight-bold"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+        >
+          Meine Pläne
+        </h1>
         <div class="text-center">
           <img src="/icons/trenner.png" height="75px" alt="..." />
         </div>
-        <h4 class="text-center">
+        <h4 class="text-center" data-aos="fade-right" data-aos-duration="1000">
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
           invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
           accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
@@ -36,7 +53,7 @@
             <div class="card-body d-flex flex-column">
               <h3 class="card-title font-weight-bold text-center amber--text darken-3">ABNEHMEN</h3>
 
-              <v-btn to="/plans" text active-class="amber--text darken-3 ">
+              <v-btn to="/plans" text active-class="amber--text darken-3 " class="mx-auto">
                 <span class="align-text-bottom">Mehr erfahren</span>
               </v-btn>
             </div>
@@ -52,7 +69,7 @@
               <h3 class="card-title font-weight-bold text-center amber--text darken-3">
                 KRAFT AUFBAUEN
               </h3>
-              <v-btn to="/plans" text active-class="amber--text darken-3 ">
+              <v-btn to="/plans" text active-class="amber--text darken-3 " class="mx-auto">
                 <span class="align-text-bottom">Mehr erfahren</span>
               </v-btn>
             </div>
@@ -61,8 +78,45 @@
       </div>
     </section>
 
-    <section class="p-5 bg-white"></section>
-    <div class="container"></div>
+    <section class="p-5 bg-white" style="height: 800px">
+      <div class="container">
+        <h1
+          class="display-3 text-left font-weight-bold"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+        >
+          ÜBER MICH
+        </h1>
+        <div>
+          <v-row>
+            <v-col class="col-8"
+              ><h5 class="text-left" data-aos="fade-up" data-aos-duration="1000">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+                eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+                ipsum dolor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                gubergren, no sea takimata sanctus est Lorem ipsum dolor
+              </h5></v-col
+            >
+            <v-col>
+              <v-img
+                src="/img/nicolas.png"
+                class="rounded-xl"
+                width="400px"
+                data-aos="fade-left"
+                data-aos-duration="1000"
+              ></v-img>
+            </v-col>
+          </v-row>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -80,5 +134,8 @@ export default {};
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.background {
+  color: black;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="transparent" dark>
+    <v-app-bar app color="black--transparent" dark>
       <div class="d-flex align-center">
         <v-img
           alt="Logo"
@@ -14,14 +14,14 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn to="/" text active-class="amber--text darken-3 ">
-        <span class="mr-2">Home</span>
+      <v-btn to="/" text active-class="amber--text darken-3 " class="mr-3">
+        <span class="mx-auto">Home</span>
       </v-btn>
-      <v-btn to="/Blog" text active-class="amber--text darken-3 ">
-        <span class="mr-2">Blog</span>
+      <v-btn to="/Blog" text active-class="amber--text darken-3 " class="mr-3">
+        <span class="mx-auto">Blog</span>
       </v-btn>
-      <v-btn to="/Login" text active-class="amber--text darken-3 ">
-        <span class="mr-2">Login</span>
+      <v-btn to="/Login" text active-class="amber--text darken-3 " class="mr-3">
+        <span class="mx-auto">Login</span>
       </v-btn>
     </v-app-bar>
 
@@ -40,3 +40,16 @@ export default {
   }),
 };
 </script>
+<style>
+html::-webkit-scrollbar {
+  width: 6px;
+}
+html::-webkit-scrollbar-thumb {
+  background: rgb(255, 171, 60) 100%;
+  border-radius: 5px;
+}
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(255, 171, 60) rgb(51, 51, 51);
+}
+</style>
