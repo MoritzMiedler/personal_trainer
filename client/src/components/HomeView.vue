@@ -106,7 +106,7 @@
             >
             <v-col>
               <v-img
-                src="/img/nicolas.png"
+                src="img/nicolas.PNG"
                 class="rounded-xl"
                 width="250px"
                 data-aos="fade-left"

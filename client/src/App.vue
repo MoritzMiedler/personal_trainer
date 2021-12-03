@@ -17,11 +17,14 @@
       <v-btn to="/" text active-class="amber--text darken-3 " class="mr-3">
         <span class="mx-auto">Home</span>
       </v-btn>
-      <v-btn to="/Blog" text active-class="amber--text darken-3 " class="mr-3">
+      <v-btn to="/blog" text active-class="amber--text darken-3 " class="mr-3">
         <span class="mx-auto">Blog</span>
       </v-btn>
-      <v-btn to="/Login" text active-class="amber--text darken-3 " class="mr-3">
+      <v-btn v-if="!loggedIn" to="/login" text active-class="amber--text darken-3 " class="mr-3">
         <span class="mx-auto">Login</span>
+      </v-btn>
+      <v-btn v-if="loggedIn" to="/sessions" text active-class="amber--text darken-3 " class="mr-3">
+        <span class="mx-auto">Your Sessions</span>
       </v-btn>
     </v-app-bar>
 
@@ -36,7 +39,7 @@ export default {
   name: 'App',
 
   data: () => ({
-    //
+    loggedIn: false,
   }),
 };
 </script>
