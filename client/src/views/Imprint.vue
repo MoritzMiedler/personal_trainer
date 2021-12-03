@@ -1,9 +1,9 @@
 <template>
-  <div>A</div>
+  <div>AAAAAAAAa</div>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style lang="css" scoped></style>
+<style lang="scss" scoped></style>

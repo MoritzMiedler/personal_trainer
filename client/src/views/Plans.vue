@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Plans from '../components/Plans.vue';
+import Plans from '../components/LoseWeight.vue';
 
 export default {
   name: 'Plans',

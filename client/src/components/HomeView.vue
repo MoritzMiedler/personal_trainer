@@ -78,7 +78,7 @@
       </div>
     </section>
 
-    <section class="p-5 bg-white" style="height: 800px">
+    <section class="p-5 bg-white" style="height: 500px">
       <div class="container">
         <h1
           class="display-3 text-left font-weight-bold"
@@ -108,7 +108,7 @@
               <v-img
                 src="/img/nicolas.png"
                 class="rounded-xl"
-                width="400px"
+                width="250px"
                 data-aos="fade-left"
                 data-aos-duration="1000"
               ></v-img>
@@ -117,6 +117,24 @@
         </div>
       </div>
     </section>
+    <div class="container-fluid bg-light">
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item">
+            <router-link to="/imprint" class="nav-link px-2 text-muted">Impressum</router-link>
+          </li>
+          <li class="nav-item">
+            <a href="https://www.instagram.com/nicolasroussel_/" class="nav-link px-2 text-muted"
+              >Instagram</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="XYZ" class="nav-link px-2 text-muted">Anderer Link</a>
+          </li>
+        </ul>
+        <p class="text-center text-muted">© 2021 Nicolas Roussel</p>
+      </footer>
+    </div>
   </div>
 </template>
 
