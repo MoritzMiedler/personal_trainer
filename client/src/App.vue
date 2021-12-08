@@ -13,12 +13,12 @@
       </div>
 
       <v-spacer></v-spacer>
-
+      <a></a>
       <v-btn to="/" text active-class="amber--text darken-3 " class="mr-3">
         <span class="mx-auto">Home</span>
       </v-btn>
       <v-btn to="/blog" text active-class="amber--text darken-3 " class="mr-3">
-        <span class="mx-auto">Blog</span>
+        <span class="mx-auto">Blog </span>
       </v-btn>
       <v-btn v-if="!loggedIn" to="/login" text active-class="amber--text darken-3 " class="mr-3">
         <span class="mx-auto">Login</span>
